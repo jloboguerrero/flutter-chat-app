@@ -73,9 +73,11 @@ class __FormState extends State<_Form> {
           ),
           SizedBox(height: 15),
           BotonAzul(
-            texto: 'Ingrese aquí',
+            texto: 'Registrese aquí',
             emailCtrl: emailCtrl,
             passCtrl: passCtrl,
+            nameCtrl: nameCtrl,
+            registro: true,
           ),
         ],
       ),
