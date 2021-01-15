@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp/helpers/mostrar_alerta.dart';
 import 'package:whatsapp/services/auth_service.dart';
+import 'package:whatsapp/services/socket_service.dart';
 
 class BotonAzul extends StatelessWidget {
   final String texto;
@@ -22,6 +23,7 @@ class BotonAzul extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<AuthService>(context);
+    final socketService = Provider.of<SocketService>(context);
 
     return RaisedButton(
       elevation: 2,
@@ -41,7 +43,7 @@ class BotonAzul extends StatelessWidget {
 
                 if (loginOk) {
                   // TODO: Conectar a nuestro socket server
-
+                  socketService.connect();
                   // TODO: navegar a pagina
                   Navigator.pushReplacementNamed(context, 'usuarios');
                 } else {
@@ -59,6 +61,7 @@ class BotonAzul extends StatelessWidget {
 
                 if (registroOk == true) {
                   // TODO: Conectar a nuestro socket server
+                  socketService.connect();
 
                   // TODO: navegar a pagina
                   Navigator.pushReplacementNamed(context, 'usuarios');
